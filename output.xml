@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170727 16:41:54.006" generator="Robot 3.0.2 (Python 2.7.13 on win32)">
+<suite source="C:\workspace2\api_testing\POST_varieties.robot" id="s1" name="POST varieties">
+<test id="s1-t1" name="Post Request With Data">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>punarjitsingh</arg>
+<arg>Monika1472123oye</arg>
+</arguments>
+<assign>
+<var>${auth}</var>
+</assign>
+<msg timestamp="20170727 16:41:54.162" level="INFO">${auth} = [u'punarjitsingh', u'Monika1472123oye']</msg>
+<status status="PASS" endtime="20170727 16:41:54.162" starttime="20170727 16:41:54.162"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>cloudant</arg>
+<arg>https://punarjitsingh.cloudant.com</arg>
+<arg>auth=${auth}</arg>
+<arg>verify=True</arg>
+</arguments>
+<msg timestamp="20170727 16:41:54.162" level="INFO">Creating Session using : alias=cloudant, url=https://punarjitsingh.cloudant.com, headers={},                     cookies=None, auth=&lt;requests.auth.HTTPBasicAuth object at 0x0000000003E883C8&gt;, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" endtime="20170727 16:41:54.162" starttime="20170727 16:41:54.162"></status>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<doc>Convert a string to a JSON object</doc>
+<arguments>
+<arg>{"id":"employee789","department": 23,"name":"Lucky Ronney","title":"Salesman","active_employee": true}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20170727 16:41:54.162" level="INFO">To JSON using : content={"id":"employee789","department": 23,"name":"Lucky Ronney","title":"Salesman","active_employee": true} </msg>
+<msg timestamp="20170727 16:41:54.162" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20170727 16:41:54.162" level="INFO">${data} = {u'department': 23, u'active_employee': True, u'title': u'Salesman', u'id': u'employee789', u'name': u'Lucky Ronney'}</msg>
+<status status="PASS" endtime="20170727 16:41:54.162" starttime="20170727 16:41:54.162"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+<arg>Accept=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20170727 16:41:54.162" level="INFO">${headers} = {u'Content-Type': u'application/json', u'Accept': u'application/json'}</msg>
+<status status="PASS" endtime="20170727 16:41:54.162" starttime="20170727 16:41:54.162"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
+<arguments>
+<arg>cloudant</arg>
+<arg>/employee_directory</arg>
+<arg>data=${data}</arg>
+<arg>params=${data}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20170727 16:41:55.084" level="INFO">Post Request using : alias=cloudant, uri=/employee_directory, data={"department": 23, "active_employee": true, "title": "Salesman", "id": "employee789", "name": "Lucky Ronney"}, headers={u'Content-Type': u'application/json', u'Accept': u'application/json'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20170727 16:41:55.084" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
+<status status="PASS" endtime="20170727 16:41:55.084" starttime="20170727 16:41:54.162"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${resp}</arg>
+</arguments>
+<status status="PASS" endtime="20170727 16:41:55.084" starttime="20170727 16:41:55.084"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${resp.text}</arg>
+</arguments>
+<status status="PASS" endtime="20170727 16:41:55.084" starttime="20170727 16:41:55.084"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>201</arg>
+</arguments>
+<msg timestamp="20170727 16:41:55.084" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20170727 16:41:55.084" starttime="20170727 16:41:55.084"></status>
+</kw>
+<tags>
+<tag>post</tag>
+</tags>
+<status status="PASS" endtime="20170727 16:41:55.084" critical="yes" starttime="20170727 16:41:54.162"></status>
+</test>
+<test id="s1-t2" name="Post Request With Dict Data">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>punarjitsingh</arg>
+<arg>Monika1472123oye</arg>
+</arguments>
+<assign>
+<var>${auth}</var>
+</assign>
+<msg timestamp="20170727 16:41:55.099" level="INFO">${auth} = [u'punarjitsingh', u'Monika1472123oye']</msg>
+<status status="PASS" endtime="20170727 16:41:55.099" starttime="20170727 16:41:55.099"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>cloudant</arg>
+<arg>https://punarjitsingh.cloudant.com</arg>
+<arg>auth=${auth}</arg>
+<arg>verify=True</arg>
+</arguments>
+<msg timestamp="20170727 16:41:55.099" level="INFO">Creating Session using : alias=cloudant, url=https://punarjitsingh.cloudant.com, headers={},                     cookies=None, auth=&lt;requests.auth.HTTPBasicAuth object at 0x0000000003EC2AC8&gt;, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" endtime="20170727 16:41:55.099" starttime="20170727 16:41:55.099"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=Punarjit Singh</arg>
+<arg>age=29</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20170727 16:41:55.099" level="INFO">${data} = {u'name': u'Punarjit Singh', u'age': u'29'}</msg>
+<status status="PASS" endtime="20170727 16:41:55.099" starttime="20170727 16:41:55.099"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+<arg>Accept=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20170727 16:41:55.099" level="INFO">${headers} = {u'Content-Type': u'application/json', u'Accept': u'application/json'}</msg>
+<status status="PASS" endtime="20170727 16:41:55.099" starttime="20170727 16:41:55.099"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
+<arguments>
+<arg>cloudant</arg>
+<arg>/employee_directory</arg>
+<arg>data=${data}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20170727 16:41:55.521" level="INFO">Post Request using : alias=cloudant, uri=/employee_directory, data={"name": "Punarjit Singh", "age": "29"}, headers={u'Content-Type': u'application/json', u'Accept': u'application/json'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20170727 16:41:55.521" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
+<status status="PASS" endtime="20170727 16:41:55.521" starttime="20170727 16:41:55.099"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${resp}</arg>
+</arguments>
+<status status="PASS" endtime="20170727 16:41:55.521" starttime="20170727 16:41:55.521"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${resp.text}</arg>
+</arguments>
+<status status="PASS" endtime="20170727 16:41:55.521" starttime="20170727 16:41:55.521"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>201</arg>
+</arguments>
+<msg timestamp="20170727 16:41:55.521" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20170727 16:41:55.521" starttime="20170727 16:41:55.521"></status>
+</kw>
+<tags>
+<tag>post</tag>
+</tags>
+<status status="PASS" endtime="20170727 16:41:55.521" critical="yes" starttime="20170727 16:41:55.099"></status>
+</test>
+<test id="s1-t3" name="Post Request Without Data">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>punarjitsingh</arg>
+<arg>Monika1472123oye</arg>
+</arguments>
+<assign>
+<var>${auth}</var>
+</assign>
+<msg timestamp="20170727 16:41:55.521" level="INFO">${auth} = [u'punarjitsingh', u'Monika1472123oye']</msg>
+<status status="PASS" endtime="20170727 16:41:55.521" starttime="20170727 16:41:55.521"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>cloudant</arg>
+<arg>https://punarjitsingh.cloudant.com</arg>
+<arg>auth=${auth}</arg>
+<arg>verify=True</arg>
+</arguments>
+<msg timestamp="20170727 16:41:55.521" level="INFO">Creating Session using : alias=cloudant, url=https://punarjitsingh.cloudant.com, headers={},                     cookies=None, auth=&lt;requests.auth.HTTPBasicAuth object at 0x0000000003FF9A20&gt;, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" endtime="20170727 16:41:55.521" starttime="20170727 16:41:55.521"></status>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<doc>Convert a string to a JSON object</doc>
+<arguments>
+<arg>{}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20170727 16:41:55.521" level="INFO">To JSON using : content={} </msg>
+<msg timestamp="20170727 16:41:55.521" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20170727 16:41:55.521" level="INFO">${data} = {}</msg>
+<status status="PASS" endtime="20170727 16:41:55.521" starttime="20170727 16:41:55.521"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+<arg>Accept=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20170727 16:41:55.521" level="INFO">${headers} = {u'Content-Type': u'application/json', u'Accept': u'application/json'}</msg>
+<status status="PASS" endtime="20170727 16:41:55.521" starttime="20170727 16:41:55.521"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
+<arguments>
+<arg>cloudant</arg>
+<arg>/employee_directory</arg>
+<arg>data=${data}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20170727 16:41:55.975" level="INFO">Post Request using : alias=cloudant, uri=/employee_directory, data={}, headers={u'Content-Type': u'application/json', u'Accept': u'application/json'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20170727 16:41:55.975" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
+<status status="PASS" endtime="20170727 16:41:55.975" starttime="20170727 16:41:55.521"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${resp}</arg>
+</arguments>
+<status status="PASS" endtime="20170727 16:41:55.990" starttime="20170727 16:41:55.990"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${resp.text}</arg>
+</arguments>
+<status status="PASS" endtime="20170727 16:41:55.990" starttime="20170727 16:41:55.990"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>201</arg>
+</arguments>
+<msg timestamp="20170727 16:41:55.990" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20170727 16:41:55.990" starttime="20170727 16:41:55.990"></status>
+</kw>
+<tags>
+<tag>post</tag>
+</tags>
+<status status="PASS" endtime="20170727 16:41:55.990" critical="yes" starttime="20170727 16:41:55.521"></status>
+</test>
+<status status="PASS" endtime="20170727 16:41:56.006" starttime="20170727 16:41:54.021"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="3">Critical Tests</stat>
+<stat fail="0" pass="3">All Tests</stat>
+</total>
+<tag>
+<stat fail="0" pass="3">post</stat>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="POST varieties" pass="3">POST varieties</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

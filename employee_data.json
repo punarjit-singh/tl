@@ -1,0 +1,17 @@
+{
+  "_id": "employee789",
+  "department": 23,
+  "name": "Lucky Ronney",
+  "title": "Salesman",
+  "address": {
+    "street": "54 Chruch St",
+    "city": "Sydney",
+    "state": "NSW"
+  },
+  "skills": [
+    "BI",
+    "Hadoop",
+    "MS Office"
+  ],
+  "active_employee": true
+}
